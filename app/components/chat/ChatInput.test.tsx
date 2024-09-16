@@ -2,28 +2,24 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import ChatInput from './ChatInput';
 
 describe('ChatInput Component', () => {
-  test('calls onSend with the correct message when typing', () => {
+  test('calls onSend with the correct message when Enter is pressed', () => {
     const mockOnSend = jest.fn();
     render(<ChatInput onSend={mockOnSend} />);
     
     const textarea = screen.getByPlaceholderText('Enter your message');
-    fireEvent.change(textarea, { target: { value: 'Hello, world!' } });
 
-    const button = screen.getByText('Send');
-    fireEvent.click(button);
+    fireEvent.change(textarea, { target: { value: 'Hello, world!' } });
+    fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter', charCode: 13 });
 
     expect(mockOnSend).toHaveBeenCalledWith('Hello, world!');
   });
 
-  test('does not call onSend with an empty message', () => {
+  test('does not call onSend with an empty message when Enter is pressed', () => {
     const mockOnSend = jest.fn();
     render(<ChatInput onSend={mockOnSend} />);
 
     const textarea = screen.getByPlaceholderText('Enter your message');
-    fireEvent.change(textarea, { target: { value: '' } });
-
-    const button = screen.getByText('Send');
-    fireEvent.click(button);
+    fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter', charCode: 13 });
 
     expect(mockOnSend).not.toHaveBeenCalled();
   });
