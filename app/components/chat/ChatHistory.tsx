@@ -14,7 +14,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
     padding: '10px',
     margin: '10px 0',
     borderRadius: '8px',
-    maxWidth: '80%',
+    maxWidth: '100%',
   };
 
   return (
