@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",  // 또는 "react" (React 버전에 따라)
     "incremental": true,
     "plugins": [
       {
