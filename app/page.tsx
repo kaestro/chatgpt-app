@@ -15,9 +15,9 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <>
       <textarea className="input-area" placeholder="Enter prompt"></textarea>
       <button className="submit-button">Enter Prompt</button>
-    </div>
+    </>
   );
 }
